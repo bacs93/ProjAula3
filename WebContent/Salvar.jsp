@@ -1,3 +1,4 @@
+<%@page import="br.com.proj.dados.MotoDB"%>
 <%@page import="br.com.proj.entidade.Moto" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -20,6 +21,14 @@ Moto moto = new Moto ();
 moto.setId(id);
 moto.setDescricao(descricao);
 moto.setAno(ano);
+
+MotoDB db = new MotoDB();
+
+if (db.insert(moto)){
+	System.out.println ("Insercao com Sucesso!");
+}else{
+	System.out.println ("Erro ao Inserir!");
+}
 
 %>
 
